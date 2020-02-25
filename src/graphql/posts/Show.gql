@@ -1,0 +1,16 @@
+query postShow($id: ID!) {
+	post(id: $id) {
+		id
+		title
+		# comments(first: 5, page: 1) {
+		# 	data {
+		# 		id
+		# 		comment
+		# 	}
+		# 	paginatorInfo {
+		# 		hasMorePages
+		# 		count
+		# 	}
+		# }
+	}
+}

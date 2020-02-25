@@ -1,0 +1,19 @@
+query postsAll($page: Int!, $where: AllPostsWhereWhereConditions) {
+	allPosts(first: 10, page: $page, where: $where) {
+		data {
+			id
+			title
+			comments_count
+		}
+		paginatorInfo {
+			count
+			currentPage
+			firstItem
+			hasMorePages
+			lastItem
+			lastPage
+			perPage
+			total
+		}
+	}
+}

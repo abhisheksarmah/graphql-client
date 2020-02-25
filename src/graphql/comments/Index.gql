@@ -1,0 +1,12 @@
+query commentsAll($page: Int!, $postId: Int!) {
+	comments(first: 5, page: $page, post_id: $postId) {
+		data {
+			id
+			comment
+		}
+		paginatorInfo {
+			hasMorePages
+			count
+		}
+	}
+}
