@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<p>
-			<router-link :to="{name:'users'}">Go to Users</router-link>
+			<!-- <router-link :to="{name:'users'}">Go to Users</router-link> -->
 			<router-link :to="{name:'posts'}">Go to posts</router-link>
 		</p>
 		<router-view></router-view>

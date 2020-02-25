@@ -4,13 +4,17 @@
 			type="text"
 			v-model="search"
 			@input="searchPosts"
+			placeholder="Search by title ..."
 		>
 		<ul
 			v-for="post in posts.data"
 			:key="post.id"
 		>
 			<li>
-				<router-link :to="{name:'post', params: {id: post.id}}">{{post.title}}</router-link>
+				<router-link
+					:to="{name:'post', params: {id: post.id}}"
+					v-html="highlightedTitle(post.title)"
+				></router-link>
 				<span>{{post.comments_count}}</span>
 			</li>
 		</ul>
@@ -67,6 +71,12 @@ export default {
 	},
 
 	methods: {
+		highlightedTitle(title) {
+			return title.replace(
+				`${this.search}`,
+				`<span style="background-color:yellow;">${this.search}</span>`
+			);
+		},
 		onPageChange(page) {
 			this.page = page;
 			this.$apollo.queries.allPosts.fetchMore({
