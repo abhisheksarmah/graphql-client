@@ -1,5 +1,10 @@
-query postsAll($page: Int!, $where: AllPostsWhereWhereConditions) {
-	allPosts(first: 10, page: $page, where: $where) {
+query postsAll(
+	$page: Int!
+	$first: Int!
+	$where: AllPostsWhereWhereConditions
+	$order: [OrderByClause!]
+) {
+	allPosts(first: $first, page: $page, where: $where, order: $order) {
 		data {
 			id
 			title
